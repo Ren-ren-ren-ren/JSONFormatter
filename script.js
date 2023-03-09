@@ -1,28 +1,40 @@
-var themeButton = document.getElementById("themeButton");
-var container = document.querySelector(".container");
-var header = document.querySelector(".header");
+const jsonInput = document.getElementById('json-input');
+const jsonOutput = document.getElementById('json-output');
+const formatBtn = document.getElementById('format-btn');
+const pasteBtn = document.getElementById('paste-btn');
+const copyBtn = document.getElementById('copy-btn');
+const themeToggleBtn = document.getElementById('toggle-theme');
 
-themeButton.addEventListener("click", function() {
-	if (container.classList.contains("dark")) {
-		container.classList.remove("dark");
-		header.classList.remove("dark");
-		themeButton.innerHTML = "Dark Mode";
-	} else {
-		container.classList.add("dark");
-		header.classList.add("dark");
-		themeButton.innerHTML = "Light Mode";
-	}
-});
-
-function format() {
-  var input = document.getElementById("jsonInput").value;
+function formatJSON() {
+  const json = jsonInput.value.trim();
   try {
-    var output = JSON.stringify(JSON.parse(input), null, 2);
-    document.getElementById("jsonOutput").value = output;
-  } catch (e) {
-    alert("Invalid JSON input.");
+    const obj = JSON.parse(json);
+    const formattedJSON = JSON.stringify(obj, null, 2);
+    jsonOutput.textContent = formattedJSON;
+  } catch (error) {
+    jsonOutput.textContent = error.message;
   }
 }
 
-var formatButton = document.getElementById("formatButton");
-formatButton.addEventListener("click", format);
+function copyJSON() {
+  const tempInput = document.createElement('input');
+  tempInput.value = jsonOutput.textContent;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+}
+
+function pasteJSON() {
+  navigator.clipboard.readText().then(text => {
+    jsonInput.value = text;
+  });
+}
+
+formatBtn.addEventListener('click', formatJSON);
+copyBtn.addEventListener('click', copyJSON);
+pasteBtn.addEventListener('click', pasteJSON);
+
+themeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});

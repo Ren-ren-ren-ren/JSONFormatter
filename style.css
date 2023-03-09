@@ -1,94 +1,98 @@
-* {
-	box-sizing: border-box;
-}
-
 body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
-	background-color: #f2f2f2;
-	color: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
 }
 
-.header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 70px;
-	background-color: #fff;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-	position: relative;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header h1 {
-    font-size: 2rem;
-    text-align: center;
-	margin: 0;
+header h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
 }
 
-#themeButton {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	background-color: #fff;
-	color: #333;
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	cursor: pointer;
+header button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-#themeButton:hover {
-	background-color: #333;
-	color: #fff;
+main {
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 50px;
+.dark body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #fff;
 }
 
-textarea {
-	width: 500px;
-	height: 200px;
-	padding: 10px;
-	margin: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	resize: none;
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	background-color: #fff;
-	color: #333;
+.dark header {
+  background-color: #1c1c1c;
+  color: #fff;
 }
 
-button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 10px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+.dark header button {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
 }
 
-button:hover {
-	background-color: #3e8e41;
+.dark main {
+  background-color: #1c1c1c;
+  color: #fff;
 }
 
-.dark {
-	background-color: #333;
-	color: #fff;
+#json-input {
+  display: block;
+  width: 100%;
+  min-height: 10rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
 }
 
-.dark textarea {
-	background-color: #333;
-	color: #fff;
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.dark button {
-	background-color: #666;
+.btn-group button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
 }
+
+#paste-btn {
+  background-color: #2196f3;
+}
+
+#copy-btn {
+  background-color: #f44336;
+}
+
+#json-output {
+  white-space: pre-wrap;
+  word-wrap: break-word

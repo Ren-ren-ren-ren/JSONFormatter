@@ -3,20 +3,23 @@
 <head>
   <title>JSON Formatter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-<div class="header">
+<header>
   <h1>JSON Formatter</h1>
-  <button id="themeButton">Dark Mode</button>
-</div>
-<div class="container">
-  <textarea id="jsonInput" placeholder="Enter JSON here"></textarea>
-  <button id="formatButton">Format</button>
-  <textarea id="jsonOutput" placeholder="Formatted JSON will appear here" readonly></textarea>
-</div>
-
+  <button id="toggle-theme">Toggle Dark Mode</button>
+</header>
+<main>
+  <textarea id="json-input" placeholder="Paste your JSON here"></textarea>
+  <div class="btn-group">
+    <button id="paste-btn">Paste</button>
+    <button id="format-btn">Format</button>
+    <button id="copy-btn">Copy</button>
+  </div>
+  <pre id="json-output"></pre>
+</main>
 <script src="script.js"></script>
 </body>
 </html>
